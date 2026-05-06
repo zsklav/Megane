@@ -1,0 +1,10 @@
+FROM docker.io/library/php:8.2-apache
+
+RUN docker-php-ext-install pdo pdo_mysql mysqli \
+    && a2enmod rewrite
+
+COPY public/ /var/www/html/
+
+RUN chown -R www-data:www-data /var/www/html
+
+EXPOSE 80

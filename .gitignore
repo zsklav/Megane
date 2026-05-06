@@ -1,0 +1,10 @@
+.env
+*.log
+.DS_Store
+mysql_data/
+.idea/
+.vscode/
+*.swp
+*.mp4
+*.mov
+*.webm
