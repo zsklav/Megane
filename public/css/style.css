@@ -492,3 +492,14 @@ input[readonly], input[disabled] {
 
 /* Charts */
 canvas { max-width: 100%; }
+
+.chart-box {
+  position: relative;
+  height: 280px;
+  width: 100%;
+}
+.chart-box > canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.chart-box--doughnut { height: 320px; }
