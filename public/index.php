@@ -91,10 +91,12 @@ include __DIR__ . '/header.php';
     <div class="card-header">
       <h2>Sales Trend (Last 14 Days)</h2>
     </div>
-    <canvas id="salesChart" height="120"
-            data-labels='<?= h(json_encode(array_map(fn($r) => date('M j', strtotime($r['day'])), $sales_by_day))) ?>'
-            data-revenue='<?= h(json_encode(array_map(fn($r) => (float)$r['revenue'], $sales_by_day))) ?>'
-            data-orders='<?= h(json_encode(array_map(fn($r) => (int)$r['orders'], $sales_by_day))) ?>'></canvas>
+    <div class="chart-box">
+      <canvas id="salesChart"
+              data-labels='<?= h(json_encode(array_map(fn($r) => date('M j', strtotime($r['day'])), $sales_by_day))) ?>'
+              data-revenue='<?= h(json_encode(array_map(fn($r) => (float)$r['revenue'], $sales_by_day))) ?>'
+              data-orders='<?= h(json_encode(array_map(fn($r) => (int)$r['orders'], $sales_by_day))) ?>'></canvas>
+    </div>
     <?php if (empty($sales_by_day)): ?>
       <p class="muted center">No sales in the last 14 days.</p>
     <?php endif; ?>
@@ -104,9 +106,11 @@ include __DIR__ . '/header.php';
     <div class="card-header">
       <h2>Revenue by Product Type</h2>
     </div>
-    <canvas id="typeChart" height="120"
-            data-labels='<?= h(json_encode(array_map(fn($r) => $r['type'], $sales_by_type))) ?>'
-            data-revenue='<?= h(json_encode(array_map(fn($r) => (float)$r['revenue'], $sales_by_type))) ?>'></canvas>
+    <div class="chart-box chart-box--doughnut">
+      <canvas id="typeChart"
+              data-labels='<?= h(json_encode(array_map(fn($r) => $r['type'], $sales_by_type))) ?>'
+              data-revenue='<?= h(json_encode(array_map(fn($r) => (float)$r['revenue'], $sales_by_type))) ?>'></canvas>
+    </div>
   </div>
 </section>
 
